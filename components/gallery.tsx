@@ -1,15 +1,20 @@
+"use client"
+
 import Image from "next/image"
+import { useState } from "react"
 
 const images = [
-  { src: "/images/torta-choco-frutos.png", alt: "Torta de chocolate con frutos rojos y crema", span: "col-span-1 row-span-2" },
+  { src: "/images/torta-choco-frutos.png", alt: "Torta de chocolate con frutos rojos y crema" },
   { src: "/images/tarta-manzana.png", alt: "Tarta de manzana crumble artesanal" },
   { src: "/images/torta-letra.png", alt: "Torta en forma de letra con dulce de leche y merengue" },
-  { src: "/images/torta-cheesecake.png", alt: "Cheesecake con cobertura de frutos rojos" },
-  { src: "/images/rogel-interior.png", alt: "Interior del rogel con capas de dulce de leche", span: "col-span-2" },
-  { src: "/images/torta-chocolate.png", alt: "Torta de chocolate artesanal" },
+  { src: "/images/torta-boda-azul.jpg", alt: "Torta de casamiento azul de tres pisos" },
+  { src: "/images/torta-30-real.jpg", alt: "Torta de cumpleaños 30 con crema y detalle rojo" },
+  { src: "/images/rogel-interior.png", alt: "Interior del rogel con capas de dulce de leche" },
 ]
 
 export function Gallery() {
+  const [selected, setSelected] = useState<string | null>(null)
+
   return (
     <section id="galeria" className="scroll-mt-24 bg-background">
       <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
@@ -21,17 +26,17 @@ export function Gallery() {
             Un vistazo a nuestras{" "}
             <em className="italic text-primary">creaciones</em>
           </h2>
-          <p className="mt-4 leading-relaxed text-muted-foreground text-pretty">
-            Cada postre es elaborado a mano con ingredientes seleccionados y mucho cariño.
+          <p className="mt-4 leading-relaxed text-muted-foreground">
+            Hacé click en cualquier foto para verla en grande.
           </p>
         </div>
 
         <div className="mt-12 grid grid-cols-2 gap-3 md:grid-cols-3">
-          {images.map((image, index) => (
+          {images.map((image) => (
             <div
               key={image.src}
-              className={`relative overflow-hidden rounded-2xl border border-border shadow-sm group ${image.span ?? "aspect-square"} ${!image.span ? "aspect-square" : ""}`}
-              style={image.span?.includes("row-span-2") ? { gridRow: "span 2" } : image.span?.includes("col-span-2") ? { gridColumn: "span 2", aspectRatio: "2/1" } : {}}
+              onClick={() => setSelected(image.src)}
+              className="relative aspect-square overflow-hidden rounded-2xl border border-border shadow-sm group cursor-pointer"
             >
               <Image
                 src={image.src}
@@ -40,7 +45,9 @@ export function Gallery() {
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 sizes="(max-width: 768px) 50vw, 33vw"
               />
-              <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/10" />
+              <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/20 flex items-center justify-center">
+                <span className="opacity-0 group-hover:opacity-100 transition-opacity text-white text-3xl">🔍</span>
+              </div>
             </div>
           ))}
         </div>
@@ -56,6 +63,30 @@ export function Gallery() {
           </a>
         </div>
       </div>
+
+      {/* Lightbox */}
+      {selected && (
+        <div
+          onClick={() => setSelected(null)}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4 backdrop-blur-sm"
+        >
+          <button
+            onClick={() => setSelected(null)}
+            className="absolute top-5 right-5 text-white text-4xl font-light leading-none hover:text-primary transition-colors"
+          >
+            ×
+          </button>
+          <div className="relative max-h-[90vh] max-w-[90vw] overflow-hidden rounded-2xl shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={selected}
+              alt="Imagen ampliada"
+              className="max-h-[90vh] max-w-[90vw] object-contain"
+            />
+          </div>
+        </div>
+      )}
     </section>
   )
 }

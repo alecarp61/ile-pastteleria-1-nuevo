@@ -21,8 +21,8 @@ const services: Service[] = [
     description:
       "Diseñamos tortas únicas para cumpleaños, bodas y aniversarios. Elegís sabores, rellenos y decoración, y nosotras creamos algo inolvidable.",
     features: ["Sabores y rellenos a elección", "Decoración personalizada", "Diseños temáticos y elegantes", "Tortas de letras y números"],
-    image: "/images/torta-choco-frutos.png",
-    imageAlt: "Torta de chocolate con frutos rojos, crema y dulce de leche",
+    image: "/images/torta-30-real.jpg",
+    imageAlt: "Torta de cumpleaños 30 artesanal con crema y detalle rojo",
     waMessage: "¡Hola! Quiero un presupuesto para una torta personalizada.",
   },
   {
@@ -32,8 +32,8 @@ const services: Service[] = [
     description:
       "Mesas dulces y servicios de catering para eventos corporativos, casamientos y celebraciones. Variedad de mini postres presentados con elegancia.",
     features: ["Mesas dulces completas", "Mini postres y macarons", "Montaje y presentación incluidos", "Adaptado al estilo de tu evento"],
-    image: "/images/catering.png",
-    imageAlt: "Mesa dulce de evento con postres variados en tonos crema y rosa",
+    image: "/images/mesa-dulce-real.jpg",
+    imageAlt: "Mesa dulce de evento con alfajores, sándwiches, pan y mini postres",
     waMessage: "¡Hola! Quiero información sobre catering para un evento.",
     reverse: true,
   },
@@ -44,8 +44,8 @@ const services: Service[] = [
     description:
       "Cajas de regalo artesanales con cookies y pastelería fina, ideales para sorprender en cualquier ocasión o agasajar a tus seres queridos.",
     features: ["Packaging premium", "Surtidos personalizables", "Tarjeta con mensaje incluida", "Envío disponible"],
-    image: "/images/gift-boxes.png",
-    imageAlt: "Caja de regalo artesanal con galletas y pastelería en tonos crema",
+    image: "/images/caja-regalo.jpg",
+    imageAlt: "Caja de regalo con croissant, alfajores y mini postres para el Día del Padre",
     waMessage: "¡Hola! Quiero un presupuesto para una caja de regalo.",
   },
 ]
@@ -88,7 +88,7 @@ export function Services() {
               <h2 className="mt-3 font-heading text-4xl font-medium leading-tight text-balance text-foreground md:text-5xl">
                 {service.title}
               </h2>
-              <p className="mt-4 max-w-md leading-relaxed text-muted-foreground text-pretty">
+              <p className="mt-4 max-w-md leading-relaxed text-muted-foreground">
                 {service.description}
               </p>
               <ul className="mt-6 flex flex-col gap-3">
@@ -104,7 +104,7 @@ export function Services() {
                   href={whatsappLink(service.waMessage)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-medium text-primary-foreground shadow-sm transition-all hover:bg-primary/90 hover:shadow-md"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-7 py-3 text-sm font-medium text-primary-foreground shadow-sm transition-all hover:bg-primary/90"
                 >
                   💬 Solicitar presupuesto
                 </a>

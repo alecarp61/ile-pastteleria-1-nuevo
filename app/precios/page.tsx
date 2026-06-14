@@ -12,7 +12,7 @@ const categories = [
       { name: "Chocotorta", price: 55000, emoji: "🍫", desc: "La clásica con galletitas y crema de mascarpone" },
       { name: "Cheesecake de frutos rojos", price: 55000, emoji: "🍓", desc: "Base crocante con crema y frutos rojos frescos" },
       { name: "Lemon Pie", price: 40000, emoji: "🍋", desc: "Crema de limón, masa sablée y merengue italiano" },
-      { name: "Key Lime Pie", price: 40000, emoji: "🍋‍🟩", desc: "Versión americana con lima y base de galletitas" },
+      { name: "Key Lime Pie", price: 40000, emoji: "🍋", desc: "Versión americana con lima y base de galletitas" },
       { name: "Banoffee", price: 40000, emoji: "🍌", desc: "Banana, dulce de leche y crema batida" },
       { name: "Matilda", price: 65000, emoji: "🍫", desc: "Torta de chocolate húmeda con cobertura ganache" },
       { name: "Pavlova con dulce de leche, crema y frutos", price: 45000, emoji: "🍓", desc: "Merengue crocante por fuera, suave por dentro" },
@@ -44,7 +44,7 @@ const categories = [
     emoji: "🍪",
     items: [
       { name: "Cuadrados de limón", price: 30000, emoji: "🍰", desc: "Lemon bars con base crocante y crema de limón" },
-      { name: "Alfajores doc", price: 17000, emoji: "🍪", desc: "Docena de alfajores artesanales con dulce de leche" },
+      { name: "Alfajores (docena)", price: 17000, emoji: "🍪", desc: "Docena de alfajores artesanales con dulce de leche" },
     ],
   },
 ]
@@ -63,22 +63,26 @@ export default function PreciosPage() {
       <SiteHeader />
 
       <main>
-        {/* Hero de la página */}
         <div className="relative overflow-hidden border-b border-border bg-secondary/30">
-          <div className="pointer-events-none absolute inset-0">
-            <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-primary/5" />
-            <div className="absolute -bottom-10 -left-10 h-48 w-48 rounded-full bg-accent/50" />
-          </div>
           <div className="relative mx-auto max-w-3xl px-6 py-16 text-center md:py-20">
-            <span className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-accent-foreground">
-              ✨ Precios actualizados
-            </span>
+            {/* Botón volver */}
+            <a
+              href="/"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:border-primary hover:text-primary mb-8"
+            >
+              ← Volver al inicio
+            </a>
+            <div className="block">
+              <span className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-accent-foreground">
+                ✨ Precios actualizados
+              </span>
+            </div>
             <h1 className="mt-4 font-heading text-5xl font-medium text-foreground md:text-6xl">
               Lista de <em className="italic text-primary">precios</em>
             </h1>
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
               Todos los precios son por unidad (torta entera / docena según corresponda).
-              Para pedidos especiales o preguntas, escribime por WhatsApp.
+              Para pedidos especiales, escribime por WhatsApp.
             </p>
             <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-amber-50 border border-amber-200 px-4 py-2 text-sm text-amber-800">
               ⚠️ Los precios pueden variar. Consultá disponibilidad antes de hacer el pedido.
@@ -86,7 +90,6 @@ export default function PreciosPage() {
           </div>
         </div>
 
-        {/* Categorías */}
         <div className="mx-auto max-w-4xl px-6 py-14 md:py-20">
           <div className="flex flex-col gap-14">
             {categories.map((cat) => (
@@ -97,7 +100,6 @@ export default function PreciosPage() {
                     {cat.name}
                   </h2>
                 </div>
-
                 <div className="grid gap-3 sm:grid-cols-2">
                   {cat.items.map((item) => (
                     <a
@@ -131,24 +133,30 @@ export default function PreciosPage() {
             ))}
           </div>
 
-          {/* CTA final */}
           <div className="mt-16 rounded-[2rem] border border-border bg-card p-8 text-center shadow-sm md:p-12">
             <p className="text-3xl">🎂</p>
             <h3 className="mt-4 font-heading text-2xl font-semibold text-foreground md:text-3xl">
               ¿No encontrás lo que buscás?
             </h3>
             <p className="mt-3 text-muted-foreground max-w-md mx-auto leading-relaxed">
-              Hacemos creaciones a pedido. Contame qué tenés en mente y armamos
-              algo especial para vos.
+              Hacemos creaciones a pedido. Contame qué tenés en mente y armamos algo especial para vos.
             </p>
-            <a
-              href={whatsappLink("¡Hola! Quiero consultar por un pedido especial.")}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-8 py-3.5 text-base font-medium text-primary-foreground shadow-sm transition-all hover:bg-primary/90 hover:shadow-md"
-            >
-              💬 Consultar por WhatsApp
-            </a>
+            <div className="mt-6 flex flex-wrap gap-3 justify-center">
+              <a
+                href={whatsappLink("¡Hola! Quiero consultar por un pedido especial.")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-8 py-3.5 text-base font-medium text-primary-foreground shadow-sm transition-all hover:bg-primary/90"
+              >
+                💬 Consultar por WhatsApp
+              </a>
+              <a
+                href="/"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-card px-8 py-3.5 text-base font-medium text-foreground transition-colors hover:border-primary hover:text-primary"
+              >
+                ← Volver al inicio
+              </a>
+            </div>
           </div>
         </div>
       </main>
