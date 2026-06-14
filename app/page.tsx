@@ -1,4 +1,5 @@
 import { SiteHeader } from "@/components/site-header"
+import { MobileCover } from "@/components/mobile-cover"
 import { Hero } from "@/components/hero"
 import { Services } from "@/components/services"
 import { Gallery } from "@/components/gallery"
@@ -11,6 +12,7 @@ export default function Page() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SiteHeader />
+      <MobileCover />
       <main>
         <Hero />
         <Services />
