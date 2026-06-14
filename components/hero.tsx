@@ -22,7 +22,7 @@ export function Hero() {
             Tortas personalizadas, catering para eventos y cajas de regalo
             artesanales. Cada creación está pensada para sorprender y emocionar.
           </p>
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:flex-wrap">
             <a
               href={whatsappLink(DEFAULT_WA_MESSAGE)}
               target="_blank"
@@ -36,6 +36,12 @@ export function Hero() {
               className="inline-flex items-center justify-center rounded-full border border-border bg-card px-8 py-3.5 text-base font-medium text-foreground transition-colors hover:bg-secondary"
             >
               Ver creaciones
+            </a>
+            <a
+              href="/precios"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-primary/40 bg-primary/8 px-8 py-3.5 text-base font-medium text-primary transition-colors hover:bg-primary/15"
+            >
+              🏷️ Ver precios
             </a>
           </div>
           <div className="mt-2 flex items-center gap-8">
