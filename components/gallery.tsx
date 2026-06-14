@@ -4,12 +4,12 @@ import Image from "next/image"
 import { useState } from "react"
 
 const images = [
-  { src: "/images/torta-choco-frutos.png", alt: "Torta de chocolate con frutos rojos y crema" },
+  { src: "/images/rogel-nuevo.png", alt: "Rogel artesanal con capas de dulce de leche y merengue" },
   { src: "/images/tarta-manzana.png", alt: "Tarta de manzana crumble artesanal" },
   { src: "/images/torta-letra.png", alt: "Torta en forma de letra con dulce de leche y merengue" },
   { src: "/images/torta-boda-azul.jpg", alt: "Torta de casamiento azul de tres pisos" },
   { src: "/images/torta-30-real.jpg", alt: "Torta de cumpleaños 30 con crema y detalle rojo" },
-  { src: "/images/rogel-interior.png", alt: "Interior del rogel con capas de dulce de leche" },
+  { src: "/images/torta-choco-frutos.png", alt: "Torta de chocolate con frutos rojos y crema" },
 ]
 
 export function Gallery() {
@@ -72,11 +72,12 @@ export function Gallery() {
         >
           <button
             onClick={() => setSelected(null)}
-            className="absolute top-5 right-5 text-white text-4xl font-light leading-none hover:text-primary transition-colors"
+            className="absolute top-5 right-5 text-white text-5xl font-light leading-none hover:text-primary transition-colors"
           >
             ×
           </button>
-          <div className="relative max-h-[90vh] max-w-[90vw] overflow-hidden rounded-2xl shadow-2xl"
+          <div
+            className="relative max-h-[90vh] max-w-[90vw] overflow-hidden rounded-2xl shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <img

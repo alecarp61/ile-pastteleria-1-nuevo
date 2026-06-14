@@ -5,12 +5,12 @@ import { useState } from "react"
 import { whatsappLink, DEFAULT_WA_MESSAGE, INSTAGRAM_URL } from "@/lib/site"
 
 const navLinks = [
-  { label: "Tortas", href: "#tortas" },
-  { label: "Catering", href: "#catering" },
-  { label: "Cajas de regalo", href: "#cajas" },
-  { label: "Galería", href: "#galeria" },
+  { label: "Tortas", href: "/#tortas" },
+  { label: "Catering", href: "/#catering" },
+  { label: "Cajas de regalo", href: "/#cajas" },
+  { label: "Galería", href: "/#galeria" },
   { label: "Precios", href: "/precios" },
-  { label: "Sobre mí", href: "#nosotros" },
+  { label: "Sobre mí", href: "/#nosotros" },
 ]
 
 export function SiteHeader() {
@@ -19,7 +19,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-3">
-        <a href="#inicio" className="flex items-center gap-3 leading-none">
+        <a href="/" className="flex items-center gap-3 leading-none">
           <Image
             src="/images/logo.jpg"
             alt="Rincón de Dulzura"

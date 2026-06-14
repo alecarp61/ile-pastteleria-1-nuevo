@@ -4,7 +4,6 @@ import { whatsappLink, DEFAULT_WA_MESSAGE } from "@/lib/site"
 export function Hero() {
   return (
     <section id="inicio" className="relative overflow-hidden bg-background">
-      {/* Fondo decorativo */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-primary/5" />
         <div className="absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-accent/60" />
@@ -19,7 +18,7 @@ export function Hero() {
             Endulzamos tus momentos{" "}
             <em className="font-medium italic text-primary">más especiales</em>
           </h1>
-          <p className="max-w-md text-lg leading-relaxed text-muted-foreground text-pretty">
+          <p className="max-w-md text-lg leading-relaxed text-muted-foreground">
             Tortas personalizadas, catering para eventos y cajas de regalo
             artesanales. Cada creación está pensada para sorprender y emocionar.
           </p>
@@ -33,7 +32,7 @@ export function Hero() {
               💬 Solicitar presupuesto
             </a>
             <a
-              href="#tortas"
+              href="/#tortas"
               className="inline-flex items-center justify-center rounded-full border border-border bg-card px-8 py-3.5 text-base font-medium text-foreground transition-colors hover:bg-secondary"
             >
               Ver creaciones
@@ -57,28 +56,22 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Imagen hero — torta rogel */}
         <div className="relative">
           <div className="relative aspect-[4/5] overflow-hidden rounded-[2.5rem] border border-border shadow-2xl">
             <Image
-              src="/images/torta-rogel.png"
+              src="/images/rogel-nuevo.png"
               alt="Rogel artesanal con capas de dulce de leche y merengue"
               fill
               priority
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
-            {/* Overlay sutil */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
           </div>
-
-          {/* Badge flotante */}
           <div className="absolute -bottom-5 -left-5 hidden rounded-2xl border border-border bg-card px-6 py-4 shadow-xl sm:block">
             <p className="font-heading text-lg font-semibold text-foreground">Diseños únicos</p>
             <p className="text-sm text-muted-foreground">A tu medida y estilo</p>
           </div>
-
-          {/* Badge esquina superior */}
           <div className="absolute -right-4 top-8 hidden rounded-2xl border border-border bg-card px-4 py-3 shadow-lg sm:block">
             <p className="text-center text-2xl">🎂</p>
             <p className="text-center text-xs font-medium text-muted-foreground">Sin TACC<br/>disponible</p>
@@ -86,7 +79,6 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Banda de confianza */}
       <div className="border-t border-border/50 bg-secondary/40">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-10 gap-y-3 px-6 py-4">
           {["🎂 Tortas personalizadas", "🍫 Brownies y tartas", "🎁 Cajas de regalo", "🥂 Catering para eventos", "📍 Buenos Aires"].map((item) => (
