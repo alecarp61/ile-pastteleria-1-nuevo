@@ -18,6 +18,10 @@ export const metadata: Metadata = {
   title: "Rincón de Dulzura | Pastelería Artesanal",
   description:
     "Tortas personalizadas, catering para eventos y cajas de regalo artesanales. Cada creación hecha con amor y dedicación. Buenos Aires.",
+  icons: {
+    icon: "/images/logo.jpg",
+    apple: "/images/logo.jpg",
+  },
 }
 
 export default function RootLayout({
