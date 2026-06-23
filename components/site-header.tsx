@@ -5,7 +5,7 @@ import { useState } from "react"
 import { whatsappLink, DEFAULT_WA_MESSAGE, INSTAGRAM_URL } from "@/lib/site"
 
 const navLinks = [
-  { label: "Tortas", href: "/#tortas" },
+  { label: "Tortas", href: "/tortas" },
   { label: "Catering", href: "/#catering" },
   { label: "Cajas de regalo", href: "/#cajas" },
   { label: "Galería", href: "/#galeria" },
@@ -37,8 +37,7 @@ export function SiteHeader() {
           </span>
         </a>
 
-        {/* Desktop nav */}
-        <nav className="hidden items-center gap-7 lg:flex" aria-label="Navegación principal">
+        <nav className="hidden items-center gap-7 lg:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -67,8 +66,6 @@ export function SiteHeader() {
           >
             Presupuesto
           </a>
-
-          {/* Hamburger */}
           <button
             onClick={() => setOpen(!open)}
             aria-label="Abrir menú"
@@ -81,7 +78,6 @@ export function SiteHeader() {
         </div>
       </div>
 
-      {/* Mobile menu */}
       {open && (
         <div className="border-t border-border bg-background/95 px-6 py-5 lg:hidden">
           <nav className="flex flex-col gap-4">
