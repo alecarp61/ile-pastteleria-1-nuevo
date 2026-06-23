@@ -6,61 +6,58 @@ import { whatsappLink } from "@/lib/site"
 const tortas = [
   {
     name: "Rogel",
+    slug: "rogel",
     image: "/images/rogel-nuevo.png",
     category: "Clásicas",
-    desc: "La reina de las tortas argentinas. Capas finísimas de hojaldre casero intercaladas con dulce de leche, coronadas con merengue italiano tostado. Crujiente por fuera, melosa por dentro.",
-    proceso: "El hojaldre se prepara a mano el día anterior. Las capas se hornean una a una para lograr la textura ideal.",
-    detalles: ["Masa de hojaldre casera", "Dulce de leche artesanal", "Merengue italiano", "Se sirve a temperatura ambiente"],
+    desc: "Capas finísimas de hojaldre casero con dulce de leche y merengue italiano tostado. El clásico argentino.",
+    precio: "$45.000",
   },
   {
-    name: "Torta de Cumpleaños 30",
+    name: "Torta de Cumpleaños",
+    slug: "torta-cumpleanos",
     image: "/images/torta-30-real.jpg",
     category: "Personalizadas",
-    desc: "Torta personalizada con cobertura de crema y detalles decorativos a elección. Ideal para celebraciones especiales donde el diseño importa tanto como el sabor.",
-    proceso: "El diseño se coordina con el cliente. La decoración se realiza el mismo día de entrega para garantizar frescura.",
-    detalles: ["Diseño 100% personalizable", "Rellenos a elección", "Cobertura de crema batida", "Decoración temática"],
+    desc: "Diseño, sabores y decoración 100% a tu elección. Cada torta es única como la celebración.",
+    precio: "Desde $45.000",
   },
   {
-    name: "Torta de Chocolate con Frutos Rojos",
+    name: "Torta Chocolate con Frutos Rojos",
+    slug: "torta-chocolate-frutos",
     image: "/images/torta-choco-frutos.png",
     category: "Chocolate",
-    desc: "Base de brownie húmedo con ganache de chocolate, rodeada de bombones de dulce de leche y coronada con crema y frutos rojos frescos. Un contraste perfecto entre lo intenso y lo fresco.",
-    proceso: "La base se hornea el día anterior para que tome consistencia. Los frutos rojos se colocan el día de entrega.",
-    detalles: ["Base de brownie artesanal", "Ganache de chocolate negro", "Bombones de dulce de leche", "Frutos rojos frescos"],
+    desc: "Brownie húmedo, ganache de chocolate, bombones de dulce de leche y frutos rojos frescos.",
+    precio: "$55.000",
   },
   {
     name: "Torta de Casamiento",
+    slug: "torta-casamiento",
     image: "/images/torta-boda-azul.jpg",
     category: "Eventos",
-    desc: "Torta de tres pisos con acabado fondant blanco y detalles en acuarela azul pintados a mano. Elegante, imponente y memorable. Perfecta para bodas y celebraciones grandes.",
-    proceso: "Se coordina una reunión previa para definir diseño, sabores y porciones. Entrega e instalación el día del evento.",
-    detalles: ["Múltiples pisos disponibles", "Detalles pintados a mano", "Sabores diferenciados por piso", "Entrega e instalación incluida"],
+    desc: "Tres pisos con acabado fondant blanco y detalles en acuarela pintados a mano. Elegante e imponente.",
+    precio: "A consultar",
   },
   {
     name: "Tarta de Manzana",
+    slug: "tarta-manzana",
     image: "/images/tarta-manzana.png",
     category: "Tartas",
-    desc: "Masa sablée crocante con relleno de manzanas caramelizadas y crumble dorado por encima. Un clásico reconfortante con el equilibrio justo entre dulce y ácido.",
-    proceso: "Las manzanas se cocinan lentamente con azúcar y canela. El crumble se prepara y hornea por separado para máxima textura.",
-    detalles: ["Masa sablée casera", "Manzanas caramelizadas", "Crumble de manteca", "Sin conservantes"],
+    desc: "Masa sablée crocante, manzanas caramelizadas con canela y crumble dorado. Un clásico reconfortante.",
+    precio: "$38.000",
   },
   {
     name: "Torta de Letra",
+    slug: "torta-letra",
     image: "/images/torta-letra.png",
     category: "Personalizadas",
-    desc: "Torta con forma de letra o número para celebraciones únicas. Base de brownie con dulce de leche, rodeada de bombones y coronada con crema. Ideal para iniciales, cumpleaños y aniversarios.",
-    proceso: "La letra se corta a mano sobre la base horneada. La decoración se realiza el mismo día de entrega.",
-    detalles: ["Cualquier letra o número", "Base de brownie o vainilla", "Decoración personalizable", "Tamaño adaptable"],
+    desc: "Cualquier letra o número con base de brownie, dulce de leche, bombones y crema. Original y deliciosa.",
+    precio: "Desde $45.000",
   },
 ]
-
-const categories = ["Todas", "Clásicas", "Personalizadas", "Chocolate", "Eventos", "Tartas"]
 
 export default function TortasPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SiteHeader />
-
       <main>
         {/* Hero */}
         <div className="relative overflow-hidden border-b border-border bg-secondary/30">
@@ -69,10 +66,7 @@ export default function TortasPage() {
             <div className="absolute -bottom-10 -left-10 h-48 w-48 rounded-full bg-accent/50" />
           </div>
           <div className="relative mx-auto max-w-4xl px-6 py-16 text-center md:py-20">
-            <a
-              href="/"
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:border-primary hover:text-primary mb-8"
-            >
+            <a href="/" className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:border-primary hover:text-primary mb-8">
               ← Volver al inicio
             </a>
             <div className="block">
@@ -84,17 +78,18 @@ export default function TortasPage() {
               Nuestras <em className="italic text-primary">tortas</em>
             </h1>
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground max-w-xl mx-auto">
-              Cada torta es única. Mirá nuestras creaciones, conocé el proceso y pedí la tuya a medida.
+              Hacé click en cada torta para ver fotos, el proceso de elaboración y cómo pedirla.
             </p>
           </div>
         </div>
 
         {/* Catálogo */}
         <div className="mx-auto max-w-6xl px-6 py-14 md:py-20">
-          <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {tortas.map((torta) => (
-              <div
-                key={torta.name}
+              <a
+                key={torta.slug}
+                href={`/tortas/${torta.slug}`}
                 className="group flex flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-sm transition-all hover:shadow-lg hover:-translate-y-1"
               >
                 {/* Foto */}
@@ -109,61 +104,42 @@ export default function TortasPage() {
                       {torta.category}
                     </span>
                   </div>
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-end justify-end p-4">
+                    <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-primary text-white text-xs font-medium px-3 py-1.5 rounded-full">
+                      Ver más →
+                    </span>
+                  </div>
                 </div>
 
-                {/* Contenido */}
-                <div className="flex flex-1 flex-col gap-4 p-6">
-                  <h2 className="font-heading text-2xl font-semibold text-foreground">
-                    {torta.name}
-                  </h2>
+                {/* Info */}
+                <div className="flex flex-1 flex-col gap-3 p-5">
+                  <div className="flex items-start justify-between gap-2">
+                    <h2 className="font-heading text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
+                      {torta.name}
+                    </h2>
+                    <span className="font-heading text-sm font-semibold text-primary whitespace-nowrap">
+                      {torta.precio}
+                    </span>
+                  </div>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     {torta.desc}
                   </p>
-
-                  {/* Proceso */}
-                  <div className="rounded-xl bg-secondary/50 px-4 py-3">
-                    <p className="text-xs font-semibold uppercase tracking-wider text-primary mb-1">
-                      ✨ El proceso
-                    </p>
-                    <p className="text-xs text-muted-foreground leading-relaxed">
-                      {torta.proceso}
-                    </p>
-                  </div>
-
-                  {/* Detalles */}
-                  <ul className="flex flex-col gap-2">
-                    {torta.detalles.map((d) => (
-                      <li key={d} className="flex items-center gap-2 text-sm text-foreground">
-                        <span className="h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
-                        {d}
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* CTA */}
-                  <div className="mt-auto pt-2">
-                    <a
-                      href={whatsappLink(`¡Hola! Me gustaría pedir un presupuesto para: ${torta.name}`)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-sm transition-all hover:bg-primary/90"
-                    >
-                      💬 Pedir esta torta
-                    </a>
+                  <div className="mt-auto pt-2 flex items-center gap-1 text-xs font-medium text-primary">
+                    Ver proceso y fotos →
                   </div>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
 
-          {/* CTA final */}
+          {/* CTA */}
           <div className="mt-16 rounded-[2rem] border border-border bg-card p-8 text-center shadow-sm md:p-12">
             <p className="text-4xl mb-4">🎂</p>
             <h3 className="font-heading text-2xl font-semibold text-foreground md:text-3xl">
               ¿No encontrás lo que buscás?
             </h3>
             <p className="mt-3 text-muted-foreground max-w-md mx-auto leading-relaxed">
-              Hacemos tortas completamente a pedido. Contanos la ocasión, los colores, los sabores y creamos algo único para vos.
+              Hacemos tortas completamente a pedido. Contanos la ocasión, los colores y los sabores.
             </p>
             <div className="mt-6 flex flex-wrap gap-3 justify-center">
               <a
@@ -184,7 +160,6 @@ export default function TortasPage() {
           </div>
         </div>
       </main>
-
       <SiteFooter />
       <WhatsAppFloat />
     </div>
