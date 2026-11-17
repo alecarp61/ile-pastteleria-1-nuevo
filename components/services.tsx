@@ -3,6 +3,7 @@
 import Image from "next/image"
 import { useState } from "react"
 import { whatsappLink } from "@/lib/site"
+import { CakeCarousel } from "@/components/cake-carousel"
 
 type Service = {
   id: string
@@ -80,6 +81,11 @@ export function Services() {
           >
             <div className="mx-auto grid max-w-6xl items-center gap-10 px-6 py-16 md:py-20 lg:grid-cols-2">
               <div className={service.reverse ? "lg:order-2" : ""}>
+                {service.id === "tortas" ? (
+                  <div className={`relative ${service.aspectClass ?? "aspect-[4/3]"} overflow-hidden rounded-[2rem] border border-border shadow-lg`}>
+                    <CakeCarousel />
+                  </div>
+                ) : (
                 <div
                   className={`relative ${service.aspectClass ?? "aspect-[4/3]"} overflow-hidden rounded-[2rem] border border-border shadow-lg group cursor-pointer`}
                   onClick={() => setLightbox(service.image)}
@@ -95,6 +101,7 @@ export function Services() {
                     <span className="opacity-0 group-hover:opacity-100 transition-opacity text-white text-4xl">🔍</span>
                   </div>
                 </div>
+                )}
               </div>
 
               <div className={service.reverse ? "lg:order-1" : ""}>
