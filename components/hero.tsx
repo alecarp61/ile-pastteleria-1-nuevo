@@ -62,7 +62,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="relative">
+        <div className="relative hidden md:block">
           <div className="relative aspect-[4/5] overflow-hidden rounded-[2.5rem] border border-border shadow-2xl">
             <Image
               src="/images/rogel-nuevo.png"
