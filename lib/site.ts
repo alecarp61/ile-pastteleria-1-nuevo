@@ -9,3 +9,7 @@ export const INSTAGRAM_URL = "https://instagram.com/rincondedulzura.pasteleria"
 
 export const DEFAULT_WA_MESSAGE =
   "¡Hola Rincón de Dulzura! Me gustaría solicitar un presupuesto."
+
+export const SITE_URL = (
+  process.env.NEXT_PUBLIC_SITE_URL || "https://rincondedulzurapasteleria.vercel.app"
+).replace(/\/$/, "")

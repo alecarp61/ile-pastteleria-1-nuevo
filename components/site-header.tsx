@@ -25,6 +25,7 @@ export function SiteHeader() {
             alt="Rincón de Dulzura"
             width={48}
             height={48}
+            priority
             className="h-11 w-11 rounded-full object-cover ring-2 ring-primary/20"
           />
           <span className="flex flex-col">
